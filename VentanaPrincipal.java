@@ -2,8 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Notas;
+package Figuras;
 
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Nicolas
@@ -15,15 +20,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      */
     public VentanaPrincipal() {
         initComponents();
-        
-        setTitle("Notas"); // Establece el título de la ventana
-        setSize(280,380); // Establece el tamaño de la ventana
+        setTitle("Figuras"); // Establece el título de la ventana
+        setSize(350,160); // Establece el tamaño de la ventana
         setLocationRelativeTo(null); /* La ventana se posiciona en el
         centro de la pantalla */
         // Establece que el botón de cerrar permitirá salir de la aplicación
-        setDefaultCloseOperation(VentanaPrincipal.EXIT_ON_CLOSE);
-        setResizable(false); /* Establece que el tamaño de la ventana no
-        se puede cambiar */
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     }
 
     /**
@@ -35,149 +37,56 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contenedor = new javax.swing.JPanel();
-        nota1 = new javax.swing.JLabel();
-        nota2 = new javax.swing.JLabel();
-        nota3 = new javax.swing.JLabel();
-        nota4 = new javax.swing.JLabel();
-        nota5 = new javax.swing.JLabel();
-        campoNota1 = new javax.swing.JTextField();
-        campoNota2 = new javax.swing.JTextField();
-        campoNota3 = new javax.swing.JTextField();
-        campoNota4 = new javax.swing.JTextField();
-        campoNota5 = new javax.swing.JTextField();
-        btnCalcular = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        promedio = new javax.swing.JLabel();
-        desviacion = new javax.swing.JLabel();
-        mayor = new javax.swing.JLabel();
-        menor = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnPiramide = new javax.swing.JButton();
+        btnCilindro = new javax.swing.JButton();
+        btnEsfera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nota1.setText("Nota 1:");
-
-        nota2.setText("Nota 2:");
-
-        nota3.setText("Nota 3:");
-
-        nota4.setText("Nota 4:");
-
-        nota5.setText("Nota 5:");
-
-        campoNota1.addActionListener(new java.awt.event.ActionListener() {
+        btnPiramide.setText("Piramide");
+        btnPiramide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNota1ActionPerformed(evt);
+                btnPiramideActionPerformed(evt);
             }
         });
 
-        campoNota3.addActionListener(new java.awt.event.ActionListener() {
+        btnCilindro.setText("Cilindro");
+        btnCilindro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNota3ActionPerformed(evt);
+                btnCilindroActionPerformed(evt);
             }
         });
 
-        btnCalcular.setText("Calcular");
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+        btnEsfera.setText("Esfera");
+        btnEsfera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
+                btnEsferaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Limpiar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        promedio.setText("Promedio");
-
-        desviacion.setText("Desviacion");
-
-        mayor.setText("Nota mayor");
-
-        menor.setText("Nota menor");
-
-        javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
-        contenedor.setLayout(contenedorLayout);
-        contenedorLayout.setHorizontalGroup(
-            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorLayout.createSequentialGroup()
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(btnCalcular)
-                        .addGap(51, 51, 51)
-                        .addComponent(jButton2))
-                    .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(promedio)
-                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(contenedorLayout.createSequentialGroup()
-                                    .addComponent(nota5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                                    .addComponent(campoNota5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contenedorLayout.createSequentialGroup()
-                                    .addComponent(nota4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(campoNota4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(contenedorLayout.createSequentialGroup()
-                                    .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
-                                            .addComponent(nota1)
-                                            .addGap(25, 25, 25))
-                                        .addGroup(contenedorLayout.createSequentialGroup()
-                                            .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(nota3)
-                                                .addComponent(nota2))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(campoNota3, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                                        .addComponent(campoNota2)
-                                        .addComponent(campoNota1))))
-                            .addComponent(desviacion)
-                            .addComponent(mayor)
-                            .addComponent(menor))))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        contenedorLayout.setVerticalGroup(
-            contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contenedorLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nota1)
-                    .addComponent(campoNota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nota2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nota3)
-                    .addComponent(campoNota3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNota4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nota4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nota5)
-                    .addComponent(campoNota5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(btnCalcular))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(promedio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desviacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mayor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menor)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnCilindro)
+                .addGap(34, 34, 34)
+                .addComponent(btnEsfera)
+                .addGap(34, 34, 34)
+                .addComponent(btnPiramide)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCilindro)
+                    .addComponent(btnEsfera)
+                    .addComponent(btnPiramide))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,68 +95,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNota1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNota1ActionPerformed
+    private void btnCilindroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCilindroActionPerformed
+    
+    VentanaCilindro cilindro = new VentanaCilindro(); /* Crea la ventana del cilindro */
+    cilindro.setVisible(true); /* Establece que se visualice la ventana del cilindro */
+    
+    }//GEN-LAST:event_btnCilindroActionPerformed
 
-    private void campoNota3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNota3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNota3ActionPerformed
+    private void btnEsferaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsferaActionPerformed
+    VentanaEsfera esfera = new VentanaEsfera(); /* Crea la ventana de la esfera */
+    esfera.setVisible(true); /* Establece que se visualice la ventana de la esfera */
+    }//GEN-LAST:event_btnEsferaActionPerformed
 
-    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        Notas notas = new Notas(); // Se crea un objeto Notas
-        
-        // Se obtiene y convierte el valor numérico de la nota 1
-        notas.listaNotas[0] = Double.parseDouble(campoNota1.getText());
-        // Se obtiene y convierte el valor numérico de la nota 2
-        notas.listaNotas[1] = Double.parseDouble(campoNota2.getText());
-        // Se obtiene y convierte el valor numérico de la nota 3
-        notas.listaNotas[2] = Double.parseDouble(campoNota3.getText());
-        // Se obtiene y convierte el valor numérico de la nota 4
-        notas.listaNotas[3] = Double.parseDouble(campoNota4.getText());
-        // Se obtiene y convierte el valor numérico de la nota 5
-        notas.listaNotas[4] = Double.parseDouble(campoNota5.getText());
-        
-        notas.calcularPromedio(); // Se calcula el promedio
-        notas.calcularDesviacion(); // Se calcula la desviación
-        
-        // Se muestra el promedio formateado
-        promedio.setText("Promedio = " + String.valueOf(String.format("%.2f",notas.calcularPromedio())));
-        double desv = notas.calcularDesviacion();
-        // Se muestra la desviación formateada
-        desviacion.setText("Desviación estándar = " + String.format("%.2f", desv));
-        // Se muestra el valor mayor formateado
-        mayor.setText("Valor mayor = " + String.valueOf(notas.calcularMayor()));
-        // Se muestra el valor menor formateado
-        menor.setText("Valor menor = " + String.valueOf(notas.calcularMenor()));
-    }//GEN-LAST:event_btnCalcularActionPerformed
+    private void btnPiramideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPiramideActionPerformed
+    
+    VentanaPiramide pirámide = new VentanaPiramide(); /* Crea la ventana de la pirámide */
+    pirámide.setVisible(true); /* Establece que se visualice la ventana de la pirámide */
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        campoNota1.setText("");
-        campoNota2.setText("");
-        campoNota3.setText("");
-        campoNota4.setText("");
-        campoNota5.setText("");
-        
-        promedio.setText("");
-        desviacion.setText("");
-        mayor.setText("");
-        menor.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnPiramideActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,22 +164,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalcular;
-    private javax.swing.JTextField campoNota1;
-    private javax.swing.JTextField campoNota2;
-    private javax.swing.JTextField campoNota3;
-    private javax.swing.JTextField campoNota4;
-    private javax.swing.JTextField campoNota5;
-    private javax.swing.JPanel contenedor;
-    private javax.swing.JLabel desviacion;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel mayor;
-    private javax.swing.JLabel menor;
-    private javax.swing.JLabel nota1;
-    private javax.swing.JLabel nota2;
-    private javax.swing.JLabel nota3;
-    private javax.swing.JLabel nota4;
-    private javax.swing.JLabel nota5;
-    private javax.swing.JLabel promedio;
+    private javax.swing.JButton btnCilindro;
+    private javax.swing.JButton btnEsfera;
+    private javax.swing.JButton btnPiramide;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
