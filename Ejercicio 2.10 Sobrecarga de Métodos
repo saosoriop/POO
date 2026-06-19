@@ -1,0 +1,49 @@
+/**
+ * Clase que implementa la sobrecarga de métodos para realizar operaciones
+ * de suma con diferentes tipos y cantidades de datos numéricos.
+ * * @author [Sara]
+ * @version 1.0
+ */
+public class Suma {
+
+    /**
+     * Suma dos números enteros.
+     */
+    public int sumar(int numero1, int numero2) {
+        return numero1 + numero2;
+    }
+
+    /**
+     * Suma tres números enteros (Método sobrecargado).
+     */
+    public int sumar(int numero1, int numero2, int numero3) {
+        return numero1 + numero2 + numero3;
+    }
+
+    /**
+     * Suma dos números decimales (Método sobrecargado).
+     */
+    public double sumar(double numero1, double numero2) {
+        return numero1 + numero2;
+    }
+
+    /**
+     * Suma tres números decimales (Método sobrecargado).
+     */
+    public double sumar(double numero1, double numero2, double numero3) {
+        return numero1 + numero2 + numero3;
+    }
+
+    /**
+     * Método principal para ejecutar y validar las pruebas de sobrecarga.
+     */
+    public static void main(String[] args) {
+        Suma operacion = new Suma();
+
+        // Pruebas de los métodos sobrecargados
+        System.out.println("Suma de dos enteros (15 + 25): " + operacion.sumar(15, 25));
+        System.out.println("Suma de tres enteros (10 + 20 + 30): " + operacion.sumar(10, 20, 30));
+        System.out.println("Suma de dos doubles (10.5 + 4.3): " + operacion.sumar(10.5, 4.3));
+        System.out.println("Suma de tres doubles (1.1 + 2.2 + 3.3): " + operacion.sumar(1.1, 2.2, 3.3));
+    }
+}
