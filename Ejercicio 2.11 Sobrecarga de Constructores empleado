@@ -1,0 +1,58 @@
+/**
+ * Clase que representa la entidad Empleado.
+ * Demuestra la sobrecarga de constructores para inicializar objetos
+ * con valores por defecto o con datos específicos.
+ * * @author [sara]
+ * @version 1.0
+ */
+public class Empleado {
+    private int identificador;
+    private String nombre;
+    private String apellidos;
+    private int edad;
+
+    /**
+     * Constructor por defecto.
+     * Inicializa un nuevo empleado con los valores base del sistema.
+     */
+    public Empleado() {
+        this.identificador = 100;
+        this.nombre = "Nuevo empleado";
+        this.apellidos = "Nuevo empleado";
+        this.edad = 18;
+    }
+
+    /**
+     * Constructor sobrecargado con parámetros.
+     * * @param identificador Código único del empleado
+     * @param nombre Nombre de pila
+     * @param apellidos Apellidos del empleado
+     * @param edad Edad cronológica
+     */
+    public Empleado(int identificador, String nombre, String apellidos, int edad) {
+        this.identificador = identificador;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+    }
+
+    /**
+     * Muestra en consola la información formateada del empleado.
+     */
+    public void imprimir() {
+        System.out.println("=== Detalle del Empleado ===");
+        System.out.println("ID: " + identificador);
+        System.out.println("Nombre Completo: " + nombre + " " + apellidos);
+        System.out.println("Edad: " + edad + " años\n");
+    }
+
+    public static void main(String[] args) {
+        // Instancia con constructor por defecto
+        Empleado empDefault = new Empleado();
+        empDefault.imprimir();
+
+        // Instancia con constructor sobrecargado
+        Empleado empParametros = new Empleado(254, "Ana", "Martínez Gómez", 30);
+        empParametros.imprimir();
+    }
+}
