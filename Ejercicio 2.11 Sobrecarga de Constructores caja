@@ -1,0 +1,65 @@
+/**
+ * Clase que representa un contenedor tipo Caja.
+ * Demuestra la sobrecarga de constructores y el uso de la palabra 
+ * reservada 'this' para el encadenamiento de constructores.
+ * * @author [sara]
+ * @version 1.0
+ */
+public class Caja {
+    private double longitudBase;
+    private double anchura;
+    private double altura;
+    private String tipoCaja;
+
+    /**
+     * Constructor base de dimensiones.
+     */
+    public Caja(double longitudBase, double anchura, double altura) {
+        this.longitudBase = longitudBase;
+        this.anchura = anchura;
+        this.altura = altura;
+    }
+
+    /**
+     * Constructor por defecto (inicializa en cero).
+     */
+    public Caja() {
+        this.longitudBase = 0.0;
+        this.anchura = 0.0;
+        this.altura = 0.0;
+        this.tipoCaja = "Genérica";
+    }
+
+    /**
+     * Constructor para cajas cúbicas (mismo valor para todos los lados).
+     */
+    public Caja(double longitud) {
+        this.longitudBase = longitud;
+        this.anchura = longitud;
+        this.altura = longitud;
+    }
+
+    /**
+     * Constructor maestro. Asigna todos los atributos e invoca 
+     * al constructor base de dimensiones mediante 'this(...)'.
+     */
+    public Caja(double longitudBase, double anchura, double altura, String tipoCaja) {
+        this(longitudBase, anchura, altura); // Llamada obligatoria en la primera línea
+        this.tipoCaja = tipoCaja;
+    }
+
+    /**
+     * Imprime las especificaciones técnicas de la caja.
+     */
+    public void imprimir() {
+        System.out.println("=== Especificaciones de la Caja ===");
+        System.out.println("Dimensiones: " + longitudBase + " x " + anchura + " x " + altura);
+        System.out.println("Tipo de Material/Caja: " + (tipoCaja != null ? tipoCaja : "Estándar") + "\n");
+    }
+
+    public static void main(String[] args) {
+        // Prueba del constructor maestro con encadenamiento
+        Caja cajaEspecial = new Caja(15.0, 10.5, 8.0, "Madera Premium");
+        cajaEspecial.imprimir();
+    }
+}
