@@ -1,0 +1,146 @@
+package Matematica;
+
+/**
+ * Clase abstracta que define el contrato para las operaciones aritméticas elementales.
+ * Sirve como base para el desarrollo de diversas estructuras numéricas.
+ */
+abstract class Numerica {
+    public abstract String toString();
+    public abstract boolean equals(Object ob);
+    public abstract Numerica sumar(Numerica numero);
+    public abstract Numerica restar(Numerica numero);
+    public abstract Numerica multiplicar(Numerica numero);
+    public abstract Numerica dividir(Numerica numero);
+}
+
+/**
+ * Clase concreta que modela un número fraccionario (numerador y denominador).
+ * Implementa de forma explícita todos los métodos abstractos heredados de la clase Numerica.
+ */
+class Fraccion extends Numerica {
+    private int numerador;
+    private int denominador;
+
+    /**
+     * Constructor para inicializar la fracción. Incluye validación ante división por cero
+     * y simplificación automática mediante el Máximo Común Divisor (MCD).
+     */
+    public Fraccion(int numerador, int denominador) {
+        if (denominador == 0) {
+            throw new IllegalArgumentException("El denominador no puede ser cero.");
+        }
+        this.numerador = numerador;
+        this.denominador = denominador;
+        simplificar();
+    }
+
+    public int getNumerador() { return numerador; }
+    public int getDenominador() { return denominador; }
+
+    /**
+     * Algoritmo iterativo de Euclides para calcular el MCD.
+     */
+    private int calcularMCD(int a, int b) {
+        return b == 0 ? a : calcularMCD(b, a % b);
+    }
+
+    /**
+     * Reduce la fracción a sus componentes mínimos y gestiona el signo del denominador.
+     */
+    private void simplificar() {
+        int mcd = calcularMCD(Math.abs(numerador), Math.abs(denominador));
+        this.numerador /= mcd;
+        this.denominador /= mcd;
+        
+        // Convención: si el denominador es negativo, el signo sube al numerador
+        if (this.denominador < 0) {
+            this.numerador = -this.numerador;
+            this.denominador = -this.denominador;
+        }
+    }
+
+    @Override
+    public String toString() {
+        if (denominador == 1) {
+            return String.valueOf(numerador);
+        }
+        return numerador + "/" + denominador;
+    }
+
+    @Override
+    public boolean equals(Object ob) {
+        if (this == ob) return true;
+        if (!(ob instanceof Fraccion)) return false;
+        Fraccion otra = (Fraccion) ob;
+        return this.numerador == otra.numerador && this.denominador == otra.denominador;
+    }
+
+    @Override
+    public Numerica sumar(Numerica numero) {
+        if (numero instanceof Fraccion) {
+            Fraccion otra = (Fraccion) numero;
+            int num = (this.numerador * otra.denominador) + (otra.numerador * this.denominador);
+            int den = this.denominador * otra.denominador;
+            return new Fraccion(num, den);
+        }
+        return null;
+    }
+
+    @Override
+    public Numerica restar(Numerica numero) {
+        if (numero instanceof Fraccion) {
+            Fraccion otra = (Fraccion) numero;
+            int num = (this.numerador * otra.denominador) - (otra.numerador * this.denominador);
+            int den = this.denominador * otra.denominador;
+            return new Fraccion(num, den);
+        }
+        return null;
+    }
+
+    @Override
+    public Numerica multiplicar(Numerica numero) {
+        if (numero instanceof Fraccion) {
+            Fraccion otra = (Fraccion) numero;
+            int num = this.numerador * otra.numerador;
+            int den = this.denominador * otra.denominador;
+            return new Fraccion(num, den);
+        }
+        return null;
+    }
+
+    @Override
+    public Numerica dividir(Numerica numero) {
+        if (numero instanceof Fraccion) {
+            Fraccion otra = (Fraccion) numero;
+            int num = this.numerador * otra.denominador;
+            int den = this.denominador * otra.numerador;
+            return new Fraccion(num, den);
+        }
+        return null;
+    }
+}
+
+/**
+ * Clase principal de control encargada de testear la lógica abstracta.
+ * Nota: Al ser la única clase 'public', da nombre al archivo de código fuente.
+ * * @author [sara]
+ * @version 1.0
+ */
+public class Prueba {
+
+    public static void main(String[] args) {
+        // Uso de polimorfismo para instanciar subtipos concretos en variables de la clase padre
+        Numerica f1 = new Fraccion(1, 2); 
+        Numerica f2 = new Fraccion(3, 4); 
+
+        System.out.println("Fracción 1: " + f1);
+        System.out.println("Fracción 2: " + f2);
+        System.out.println();
+
+        // Ejecución y test de operaciones matemáticas heredadas
+        System.out.println("Suma (1/2 + 3/4)          = " + f1.sumar(f2));         
+        System.out.println("Resta (1/2 - 3/4)         = " + f1.restar(f2));        
+        System.out.println("Multiplicación (1/2 * 3/4) = " + f1.multiplicar(f2));   
+        System.out.println("División (1/2 / 3/4)       = " + f1.dividir(f2));       
+    }
+}
