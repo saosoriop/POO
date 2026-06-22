@@ -1,0 +1,42 @@
+package Profesores;
+
+/**
+ * Superclase que representa un profesor genérico.
+ * Nota: Al estar en el mismo archivo, no lleva la palabra 'public'.
+ */
+class Profesor {
+    protected void imprimir() { 
+        System.out.println("Es un profesor.");
+    } 
+}
+
+/**
+ * Subclase que representa a un profesor con escalafón de titular.
+ * Nota: Al estar en el mismo archivo, no lleva la palabra 'public'.
+ */
+class ProfesorTitular extends Profesor {
+    @Override
+    protected void imprimir() {
+        System.out.println("Es un profesor titular.");
+    }
+}
+
+/**
+ * Clase principal de ejecución. 
+ * Al ser la única clase 'public', el archivo debe llamarse estrictamente: Prueba.java
+ * @author [sara]
+ * @version 1.0
+ */
+public class Prueba { 
+
+    public static void main(String[] args) { 
+        // Instanciación polimórfica inicial
+        Profesor profesor1 = new ProfesorTitular();
+        
+        // Casting explícito solicitado en el ejercicio propuesto
+        Profesor profesor2 = (Profesor) profesor1;
+        
+        // Invocación del método bajo enlace dinámico
+        profesor2.imprimir();
+    } 
+}
