@@ -1,0 +1,75 @@
+package Profesores;
+
+import java.util.Vector;
+
+/**
+ * Superclase que representa un profesor genérico.
+ * Nota: Al estar dentro del mismo archivo fuente, no lleva el modificador 'public'.
+ */
+class Profesor {
+    
+    /**
+     * Método protegido heredable que identifica la identidad base del profesor.
+     */
+    protected void imprimir() {
+        System.out.println("Es un profesor.");
+    }
+}
+
+/**
+ * Subclase que añade el atributo años y sobrescribe el método imprimir.
+ * Nota: Al estar dentro del mismo archivo fuente, no lleva el modificador 'public'.
+ */
+class ProfesorTitular extends Profesor {
+    // Atributo específico de la subclase
+    int años = 0;
+
+    /**
+     * Redefinición (override) polimórfica del método imprimir.
+     */
+    @Override
+    protected void imprimir() {
+        System.out.println("Es un profesor titular.");
+    }
+
+    /**
+     * Método propio de la subclase ProfesorTitular.
+     */
+    protected void imprimirAños() {
+        System.out.println("Años = " + años);
+    }
+}
+
+/**
+ * Clase principal de ejecución para el Ejercicio Propuesto 4.6.
+ * Demuestra el uso de colecciones heterogéneas y despacho dinámico de métodos.
+ * * @author [sara]
+ * @version 1.0
+ */
+public class Prueba3 {
+    // Estructura de almacenamiento dinámica (Vector) para guardar instancias de la jerarquía
+    Vector profesores;
+
+    public static void main(String[] args) { 
+        // Instanciación de la clase de prueba y la colección
+        Prueba3 prueba = new Prueba3();
+        prueba.profesores = new Vector();
+        
+        // Creación de objetos usando referencias correspondientes a sus tipos
+        Profesor profesor1 = new Profesor();
+        ProfesorTitular profesor2 = new ProfesorTitular();
+        
+        // Agregando elementos de distinto tipo a la colección heterogénea
+        prueba.profesores.add(profesor1);
+        prueba.profesores.add(profesor2);
+        
+        // Iteración sobre el Vector para comprobar el comportamiento polimórfico
+        for (int i = 0; i < prueba.profesores.size(); i++) {
+            // Se recupera el objeto aplicando un casteo seguro hacia la superclase
+            Profesor p = (Profesor) prueba.profesores.elementAt(i);
+            
+            // Invocación polimórfica: la JVM resolverá el método según el tipo real en el Heap
+            p.imprimir();
+        }
+    } 
+}
